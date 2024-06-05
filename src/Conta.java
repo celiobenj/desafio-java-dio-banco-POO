@@ -8,12 +8,14 @@ public abstract class Conta implements InterfaceConta {
     protected double saldo;
 
     private Cliente cliente;
+    private Banco banco;
 
-    public Conta(Cliente cliente) {
+    public Conta(Cliente cliente, Banco banco) {
         agencia = AGENCIA_PADRAO;
         numero = SEQUENCIAL++;
         saldo = 0;
         this.cliente = cliente;
+        this.banco = banco;
     }
 
     @Override
@@ -34,6 +36,7 @@ public abstract class Conta implements InterfaceConta {
 
     public void imprimirInfosmacoes() {
         System.out.println(String.format("Titular: {Nome: %s, CPF: %s}", cliente.getNome(), cliente.getCpf()));
+        System.out.println(String.format("Banco: %s", banco.getNome()));
         System.out.println(String.format("Agência: %d", agencia));
         System.out.println(String.format("Número: %d", numero));
         System.out.println(String.format("Saldo: R$%.2f", saldo));
@@ -54,4 +57,15 @@ public abstract class Conta implements InterfaceConta {
     public Cliente getCliente() {
         return cliente;
     }
+
+    public Banco getBanco() {
+        return banco;
+    }
+
+    @Override
+    public String toString() {
+        return "Conta [cliente=" + cliente + "]";
+    }
+
+    
 }

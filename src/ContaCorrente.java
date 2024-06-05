@@ -1,36 +1,12 @@
-public class ContaCorrente {
+public class ContaCorrente extends Conta {
 
-    private int agencia;
-    private int numero;
-    private double saldo;
-
-    public ContaCorrente(int agencia, int numero) {
-        this.agencia = agencia;
-        this.numero = numero;
+    public ContaCorrente(Cliente cliente) {
+        super(cliente);
     }
 
-    public void sacar() {
-
+    @Override
+    public void imprimirExtrato() {
+        System.out.println("Informações Conta Corrente:");
+        super.imprimirInfosmacoes();
     }
-
-    public void depositar() {
-
-    }
-
-    public void transferir() {
-
-    }
-
-    public int getAgencia() {
-        return agencia;
-    }
-
-    public int getNumero() {
-        return numero;
-    }
-
-    public double getSaldo() {
-        return saldo;
-    }
-
 }
